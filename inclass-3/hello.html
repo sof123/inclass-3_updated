@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>Hello HTML!</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<table border="1">
+	<tr><td>Athenian</td><td>Owl</td></tr>
+	<tr><td colspan="2"><img src="http://explore.rice.edu/uploadedImages/Explore/Welcome_to_Rice/riceacademicseal1.jpg"></td></tr>
+</table>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<ul>
+	<li><a href="http://www.rice.edu">Rice</a></li>
+	<li><a href="http://www.chron.com">Houston Chronicle</a></li>
+	<li><a href="http://www.twitter.com">Twitter</a></li>
+	<li><a href="http://www.twosigma.com">TwoSigma</a></li>
+	<input type="button" value="Clear" onclick="clearText();">
+	<br>
+	<input type="button" value="Pause timer" onclick="pauseTimer();">
+	<input type="button" value="Resume timer" onclick="resumeTimer();">
+	<span id="indicator"></span>
+
+
+</ul>
+
+<textarea rows="10" cols="50" id="textArea">
+
+
+ --- Enter your message here ---
+
+
+</textarea>
+
+
+</body>
+
+<script>
+
+var currentNumber = 15;
+var indicator = document.getElementById("indicator");
+indicator.innerHTML = currentNumber;
+
+
+writeCount();
+var interval = setInterval(writeCount,1000);
+setTimeout(timerAlert, 5000);
+
+
+
+function clearText()
+{
+	document.getElementById("textArea").value = "";
+}
+
+function writeCount()
+{
+	if (currentNumber > 0)
+	{
+		document.getElementById("indicator").innerHTML = currentNumber;
+		currentNumber--;
+	}
+	else if (currentNumber == 0)
+	{
+	document.getElementById("indicator").innerHTML = currentNumber;
+	currentNumber--;
+	clearInterval(interval);
+	window.location.href = "https://www.clear.rice.edu/comp431/sample/hello.html"
+	}
+}
+
+function pauseTimer()
+{
+	window.clearInterval(interval);
+
+}
+function resumeTimer()
+{
+	interval = setInterval(writeCount,1000);
+}
+
+function timerAlert()
+{
+	alert("the page will redirect when the counter reaches zero");
+}
+
+</script>
+
+</html>
